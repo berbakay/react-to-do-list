@@ -13,6 +13,24 @@
   }
 }
 
+li{
+  text-align: center;
+  font-size: 2rem;  
+  margin: auto;
+}
+
+span{
+  font-size: 2rem;
+}
+
+.complete{
+  color:greenyellow;
+}
+
+.incomplete{
+  text-decoration: underline;
+}
+
 .App-header {
   background-color: #282c34;
   display: flex;

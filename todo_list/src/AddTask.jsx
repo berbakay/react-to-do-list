@@ -17,7 +17,7 @@ class AddTask extends React.Component {
             <form onSubmit={(event) => {
                 const task = this.state.newTask
                 event.preventDefault()
-                this.props.addTask(task)
+                this.props.addTask({ task, isComplete: false })
                 this.setState({
                     newTask: ""
                 })
