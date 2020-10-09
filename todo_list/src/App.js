@@ -15,13 +15,27 @@ class App extends React.Component {
       return { tasks: [...previousState.tasks, task] }
     })
   }
+
+  deleteTask = (event) => {
+    const id = event.target.id;
+    console.log('deleting....')
+    this.setState((previousState) => {
+      const currentTasks = [...previousState.tasks];
+      const newTasks = currentTasks.filter(task => {
+        if(task !== id) {
+          return task;
+        }
+      })
+      return {tasks: newTasks};
+    })
+  }
   render() {
     // console.log(this.state);
     return (
       <div className="App">
         <NameEntry />
         <AddTask addTask={this.addTask} />
-        <ToDoList tasks={this.state.tasks} />
+        <ToDoList tasks={this.state.tasks} deleteTask = {this.deleteTask}/>
       </div>
     );
   }
