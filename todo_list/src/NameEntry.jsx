@@ -23,10 +23,13 @@ class NameEntry extends React.Component {
                 this.setState(() =>  {
                     return { headerName: this.state.name }
                 })
+                this.setState({
+                    name : ""
+                })
                 }}
             >
                 <label>Enter Name:</label>
-                <input type="text" placeholder="Enter your name..." onChange={this.handleChange}></input>
+                <input type="text" placeholder="Enter your name..." onChange={this.handleChange} value={this.state.name}></input>
                 <button>Submit Name</button>
             </form>
             </header>

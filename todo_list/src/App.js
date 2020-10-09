@@ -22,9 +22,7 @@ class App extends React.Component {
     this.setState((previousState) => {
       const currentTasks = [...previousState.tasks];
       const newTasks = currentTasks.filter(task => {
-        if(task !== id) {
-          return task;
-        }
+        return task !== id
       })
       return {tasks: newTasks};
     })

@@ -18,9 +18,12 @@ class AddTask extends React.Component {
                 const task = this.state.newTask
                 event.preventDefault()
                 this.props.addTask(task)
+                this.setState({
+                    newTask: ""
+                })
             }}>
                 <label>Enter New Task:</label>
-                <input onChange={this.handleChange} type="text" placeholder="Enter your task here..."></input>
+                <input onChange={this.handleChange} type="text" value={this.state.newTask} placeholder="Add a new task..."></input>
                 <button>Add task</button>
             </form>
         )
