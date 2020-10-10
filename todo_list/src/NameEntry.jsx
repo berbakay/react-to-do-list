@@ -2,7 +2,8 @@ import React from 'react';
 class NameEntry extends React.Component {
     state = {
         name: '',
-        headerName: 'Anon'
+        headerName: '',
+        done: false
     }
 
     handleChange = (event) => {
@@ -17,11 +18,12 @@ class NameEntry extends React.Component {
     render() {   
         return (
             <header className="App-header">
-            <h1>{this.state.headerName}'s To-Do List</h1>
-            <form onSubmit = {(event) => {
+            <h1>{this.state.headerName === '' ? "To-Do List" : `${this.state.headerName}'s To-Do List`}</h1>
+            {!this.state.done && <form onSubmit = {(event) => {
                 event.preventDefault()
                 this.setState(() =>  {
-                    return { headerName: this.state.name }
+                    return { headerName: this.state.name,
+                    done: !this.state.done }
                 })
                 this.setState({
                     name : ""
@@ -32,6 +34,7 @@ class NameEntry extends React.Component {
                 <input type="text" placeholder="Enter your name..." onChange={this.handleChange} value={this.state.name}></input>
                 <button>Submit Name</button>
             </form>
+    }
             </header>
         )
     }
