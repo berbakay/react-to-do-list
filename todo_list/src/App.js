@@ -7,7 +7,8 @@ import './App.css';
 class App extends React.Component {
 
   state = {
-    tasks: []
+    tasks: [],
+    isNameAdded: false
   }
 
   toggleTask = (taskToggled) => {
@@ -17,8 +18,6 @@ class App extends React.Component {
         if(task.task === taskToggled) {
           const newTask = {...task}
           newTask.isComplete = !newTask.isComplete
-          console.log(newTask.isComplete);
-          console.log('^ newTask.isComplete');
           return newTask
         } else {
           return {...task};
@@ -33,8 +32,15 @@ class App extends React.Component {
 
   addTask = (task) => {
     this.setState((previousState) => {
-      console.log(previousState.tasks);
       return { tasks: [...previousState.tasks, task] }
+    })
+  }
+
+  nameAdded = () => {
+    this.setState((previousState) => {
+      const newState = {...previousState};
+      newState.isNameAdded = true;
+      return newState;
     })
   }
 
@@ -57,8 +63,8 @@ class App extends React.Component {
     // console.log(this.state);
     return (
       <div className="App">
-        <NameEntry />
-        <AddTask addTask={this.addTask} />
+        <NameEntry nameAdded = {this.nameAdded}/>
+        {this.state.isNameAdded && <AddTask addTask={this.addTask} />}
         <ToDoList tasks={this.state.tasks} deleteTask = {this.deleteTask} toggleTask= {this.toggleTask}/>
       </div>
     );

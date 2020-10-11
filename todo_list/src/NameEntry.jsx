@@ -21,6 +21,7 @@ class NameEntry extends React.Component {
             <h1>{this.state.headerName === '' ? "To-Do List" : `${this.state.headerName}'s To-Do List`}</h1>
             {!this.state.done && <form onSubmit = {(event) => {
                 event.preventDefault()
+                this.props.nameAdded();
                 this.setState(() =>  {
                     return { headerName: this.state.name,
                     done: !this.state.done }
