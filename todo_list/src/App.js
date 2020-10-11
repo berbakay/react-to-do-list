@@ -23,7 +23,6 @@ class App extends React.Component {
           return {...task};
         }
       })
-      console.log(newState);
       return {
         tasks: newState
       }
@@ -46,14 +45,9 @@ class App extends React.Component {
 
   deleteTask = (event) => {
     const id = event.target.id;
-    console.log('deleting....')
     this.setState((previousState) => {
-      console.dir(previousState.tasks);
-      console.log('^ prevState.tasks');
       const currentTasks = [...previousState.tasks];
       const newTasks = currentTasks.filter(task => {
-        console.dir({task});
-        console.log('^ task in filter');
         return task.task !== id
       })
       return {tasks: newTasks};
@@ -64,8 +58,10 @@ class App extends React.Component {
     return (
       <div className="App">
         <NameEntry nameAdded = {this.nameAdded}/>
+        {this.state.isNameAdded && <div class = 'theBody'>
         {this.state.isNameAdded && <AddTask addTask={this.addTask} />}
         <ToDoList tasks={this.state.tasks} deleteTask = {this.deleteTask} toggleTask= {this.toggleTask}/>
+        </div>}
       </div>
     );
   }

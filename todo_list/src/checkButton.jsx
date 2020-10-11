@@ -6,7 +6,6 @@ class CheckButton extends React.Component {
     }
 
     toggleCheck = () => {
-        console.log("toggling...")
         this.setState((prevState) => {
             return {
                 taskComplete: !prevState.taskComplete
@@ -21,7 +20,7 @@ class CheckButton extends React.Component {
 
     render() {
         return (
-            <button id={this.props.task} onClick={this.onClick}>{this.state.taskComplete ? <span role="img" aria-label="tick">😁</span> : <p>     </p>}</button>
+            <button class="checkButton" id={this.props.task} onClick={this.onClick}>{this.state.taskComplete ? <span role="img" aria-label="tick">😁</span> : <p>     </p>}</button>
         )
     }
 }

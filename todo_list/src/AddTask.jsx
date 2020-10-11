@@ -30,11 +30,10 @@ class AddTask extends React.Component {
                     })
                 }   
             }}>
-                <label>Enter New Task:</label>
-                <input onChange={this.handleChange} type="text" value={this.state.newTask} placeholder="Add a new task..."></input>
+                <input onChange={this.handleChange} type="text" value={this.state.newTask} placeholder="add a new task"></input>
                 <button>Add task</button>
             </form>
-            {this.state.error && <p id="error">you must enter a task name</p>}
+            {this.state.error && <p class="error">you must enter a task name</p>}
             </div>
         )
     }

@@ -1,3 +1,7 @@
+html {
+  max-width: 100%;
+}
+
 .App {
   text-align: center;
   font-family: sans-serif;
@@ -9,24 +13,219 @@ li{
   margin: auto;
 }
 
-span{
-  font-size: 2rem;
-}
-
 .complete{
-  color:greenyellow;
-}
-
-.incomplete{
-  text-decoration: underline;
+  text-decoration: line-through;
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: black;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
+  height: 100vh
+}
+
+header h1 {
+  max-width: 100%;
+  font-size: 10rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+  margin-bottom: 3rem;
+}
+
+header form {
+  width: 100%
+}
+
+header input {
+  text-transform: lowercase;
+  text-align: center;
+  padding: 1rem;
+  width: 50%;
+  height: 4rem;
+  font-size: 2rem;
+  letter-spacing: 0.3rem;
+}
+
+header button {
+  display: block;
+  margin: auto;
+  width: 30%;
+  height: 4rem;
+  margin-top: 3rem;
+  letter-spacing: 0.3rem;
+}
+
+header input:hover {
+  cursor: text;
+}
+
+header input:focus {
+  outline-color: black
+}
+
+header input:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
+header button:hover {
+  border: 1px solid white;
+  color: white;
+  background-color: black;
+  cursor: pointer;
+}
+
+header p {
+  font-size: 3rem;
+  margin-top: 0;
+  animation: blinker 2s infinite;
+  background-color: transparent;
+  letter-spacing: 0.3rem;
+}
+.error {
+  animation: none;
+  margin-top: 5rem;
+  color: red;
+}
+
+.theBody {
+  height: 100vh;
+}
+
+.theBody input {
+  text-transform: lowercase;
+  text-align: center;
+  padding: 1rem;
+  width: 50%;
+  height: 4rem;
+  font-size: 2rem;
+  letter-spacing: 0.3rem;
+}
+
+.theBody input:focus {
+  outline-color: black
+}
+
+.theBody button {
+  display: block;
+  margin: auto;
+  width: 30%;
+  height: 4rem;
+  margin-top: 3rem;
+  letter-spacing: 0.3rem;
+  margin-top: 0;
+}
+
+.theBody button:hover {
+  cursor: pointer;
+}
+
+.theBody .error {
+  margin-top: 0;
+}
+
+.theBody table .checkButton {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 100%;
+  padding: 0;
+  border: 1px solid black;
+}
+
+.theBody table button {
+  margin: 0;
+  display: inline;
+}
+
+.theBody table .checkButton:focus {
+  outline: none;
+}
+
+span {
+  letter-spacing: 0;
+  font-size: 2rem;
+  margin: auto;
+}
+
+.theBody .delete {
+  margin-left: 1rem;
+  float: right;
+  border: 1px solid black;
+}
+
+.theBody table p {
+  float: left;
+  display: inline;
+  margin: auto;
+  max-width: 50%;
+}
+
+table {
+  border-collapse: collapse;
+  margin: auto;
+  margin-top: 2rem;
+  width: 80%;
+  table-layout: fixed;
+}
+
+tr {
+  height: 100px;
+}
+
+td {
+  padding: 1rem;
+  border: 1px solid black;
+  border-left: 0;
+  border-right: 0;
+  vertical-align: center;
+  text-align: center;
+}
+
+@keyframes blinker {
+  50% {
+      opacity: 0.1;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  header h1 {
+    font-size: 5rem;
+  }
+
+  header input {
+    font-size: 1rem;
+  }
+
+  .theBody input {
+    font-size: 1rem;
+  }
+  
+  .delete {
+    word-wrap: break-word;
+    font-family: monospace;
+    text-align: right;
+  }
+
+}
+
+@media screen and (max-width: 320px) {
+  header h1 {
+    font-size: 5rem;
+  }
+
+  header input {
+    font-size: 0.8rem;
+  }
+
+  .theBody input {
+    font-size: 0.8rem;
+  }
+  
+  .delete {
+    font-size: 0.8rem;
+    word-wrap: break-word;
+    font-family: monospace;
+  }
+
 }

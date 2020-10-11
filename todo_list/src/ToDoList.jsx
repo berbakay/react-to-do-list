@@ -3,13 +3,14 @@ import CheckButton from "./checkButton"
 
 const ToDoList = (props) => {
     return (
-        <ul>
+        <table>
             {props.tasks.map(({ task, isComplete }) => {
-                return <li className={isComplete === true ? "complete" : "incomplete"} key={task}>{task}
-                    <CheckButton toggleTask={props.toggleTask} task={task} />
-                    <button key={`${task}-delete`} id={`${task}`} onClick={props.deleteTask}>Delete</button></li>
+                return <tr><td class="textrow"  key={task}><p className={isComplete === true ? "complete" : "incomplete"}>{task}</p></td>
+                    <td><CheckButton toggleTask={props.toggleTask} task={task} /></td>
+                    <td><button key={`${task}-delete`} class="delete" id={`${task}`} onClick={props.deleteTask}>Del</button>
+                   </td></tr>
             })}
-        </ul>
+        </table>
     )
 }
 
